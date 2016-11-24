@@ -24,7 +24,7 @@ while($row = mysqli_fetch_array($response)){
 
 echo '<tr><td align="left">' . 
 $row['name'] . '</td><td align="left">' . 
-$row['date'] . '</td><td align="left">'
+$row['date'] . '</td><td align="left">';
 
 echo '</tr>';
 }
