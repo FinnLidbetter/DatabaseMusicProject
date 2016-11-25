@@ -3,7 +3,7 @@
 require_once('../mysqlConnect.php');
 
 // Create a query for the database
-$query = "SELECT performanceTitle, sponsor, imageFilePath,
+$query = "SELECT id, performanceTitle, sponsor, imageFilePath,
 	recordingFilePath, concertName, concertDate FROM Performances";
 
 // Get a response from the database by sending the connection
@@ -16,7 +16,8 @@ if($response){
 echo '<table align="left"
 cellspacing="5" cellpadding="8">
 
-<tr><td align="left"><b>performanceTitle</b></td>
+<tr><td align="left"><b>id</b></td>
+<td align="left"><b>performanceTitle</b></td>
 <td align="left"><b>sponsor</b></td>
 <td align="left"><b>imageFilePath</b></td>
 <td align="left"><b>recordingFilePath</b></td>
@@ -27,7 +28,8 @@ cellspacing="5" cellpadding="8">
 // until no further data is available
 while($row = mysqli_fetch_array($response)){
 
-echo '<tr><td align="left">' . 
+echo '<tr><td align="left">' .
+$row['id'] . '</td><td align="left">' . 
 $row['performanceTitle'] . '</td><td align="left">' . 
 $row['sponsor'] . '</td><td align="left">' .
 $row['imageFilePath'] . '</td><td align="left">' .
