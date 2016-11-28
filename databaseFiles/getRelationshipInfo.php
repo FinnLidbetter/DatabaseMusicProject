@@ -1,3 +1,7 @@
+<p>
+<a href="../homepage.php">Back</a>
+</p>
+
 <?php
 
 require_once('../mysqlConnect.php');

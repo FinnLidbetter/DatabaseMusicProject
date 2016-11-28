@@ -114,6 +114,10 @@ elseif (isset($_POST['submitInfo'])){
 <p>
 <input type="submit" name="submitInfo" alt="SubmitInfo" value="Send" />
 </p>
+
+<p>
+<a href="../homepage.php">Back</a>
+</p>
     
 </form>
 </body>
