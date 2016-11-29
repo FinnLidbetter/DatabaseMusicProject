@@ -149,5 +149,9 @@ if(isset($_POST['submit'])) {
     <input type="submit" name="submit" value="Send" />
 	</p>
 
+	<p>
+<a href="../homepage.php">Back</a>
+</p>
+
 </body>
 </html>

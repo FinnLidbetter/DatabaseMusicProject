@@ -1,3 +1,7 @@
+<p>
+<a href="../homepage.php">Back</a>
+</p>
+
 <?php
 // Get a connection for the database
 require_once('../mysqlConnect.php');

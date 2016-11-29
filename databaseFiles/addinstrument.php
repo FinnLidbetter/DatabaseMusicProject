@@ -19,6 +19,10 @@
 <input type="submit" name="submit" value="Send" />
 </p>
 
+<p>
+<a href="../homepage.php">Back</a>
+</p>
+
 </form>
 </body>
 </html>

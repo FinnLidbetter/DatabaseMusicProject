@@ -5,6 +5,15 @@
 </head>
 <body>
 
+
+<?php 
+require_once('../mysqlConnect.php');
+$options = '';
+$ids = @mysqli_query($dbc, "SELECT id FROM Persons");
+while($row = mysqli_fetch_array($ids)) {
+	$options .= "<option>" . $row['id'] . "<option>";
+} ?>
+
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/relationshipAdded.php" method="post">
 
 	<b>Add a New Relationship</b>
@@ -14,7 +23,7 @@
 	</p>
 
 	<p> personID
-	<input type="text" name="personID" size="20" value=""/>
+		<select name = "personID">  <?php echo $options?> <select/>
 	</p>
 
 	<p> ensembleID
@@ -47,6 +56,10 @@
 	
 	<p>
     <input type="submit" name="submit" value="Send" />
+	</p>
+
+	<p>
+	<a href="../homepage.php">Back</a>
 	</p>
 
 </body>

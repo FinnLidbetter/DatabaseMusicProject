@@ -67,6 +67,10 @@ if (isset($_POST['submitInfo'])){
 <input type="submit" name="submitInfo" alt="SubmitInfo" value="Send" />
 </p>
 
+<p>
+<a href="../homepage.php">Back</a>
+</p>
+
     
 </form>
 </body>
