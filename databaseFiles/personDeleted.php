@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Add Person</title>
+<title>Delete Person</title>
 </head>
 <body>
 <?php
