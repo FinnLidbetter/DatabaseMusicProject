@@ -33,7 +33,12 @@
 <a href="databasefiles/getInstrumentInfo.php">Instruments</a>
 <a href="databasefiles/getPerformancesInfo.php">Performances</a>
 <a href="databasefiles/getPersonsInfo.php">Persons</a>
+<a href="databasefiles/getWorksInfo.php">Works</a>
 <a href="databasefiles/getRelationshipInfo.php">Relationships</a>
+<a href="databasefiles/getEnsembleMembersInfo.php">EnsembleMembers</a>
+<a href="databasefiles/getMtaAttendeesInfo.php">MtA Attendees</a>
+<a href="databasefiles/getStudentsInfo.php">Students</a>
+<a href="databasefiles/getWorksPlayedInfo.php">Works Played</a>
 </p>
 
 <p><b>Other</b></p>
