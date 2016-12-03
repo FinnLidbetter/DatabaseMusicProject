@@ -13,6 +13,7 @@
 <a href="databasefiles/addinstrument.php">Add Instrument</a>
 <a href="databasefiles/addperformance.php">Add Performance</a>
 <a href="databasefiles/addperson.php">Add Person</a>
+<a href="databasefiles/addwork.php">Add Work</a>
 <a href="databasefiles/addrelationship.php">Add Relationship</a>
 </p>
 
@@ -22,7 +23,9 @@
 <a href="databasefiles/deleteensemble.php">Delete Ensemble</a>
 <a href="databasefiles/deleteinstitution.php">Delete Institution</a>
 <a href="databasefiles/deleteinstrument.php">Delete Instrument</a>
+<a href="databasefiles/deleteperformance.php">Delete Performance</a>
 <a href="databasefiles/deleteperson.php">Delete Person</a>
+<a href="databasefiles/deletework.php">Delete Work</a>
 </p>
 
 <p><b>View</b></p>

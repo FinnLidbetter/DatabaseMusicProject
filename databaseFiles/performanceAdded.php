@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Add Person</title>
+<title>Add Performance</title>
 </head>
 <body>
 <?php
@@ -18,14 +18,14 @@ if(isset($_POST['submit'])){
     }
     if(empty($_POST['sponsor'])){
         // Adds name to array
-        $data_missing[] = 'Sponsor';
+        $sponsor = NULL;
     } else{
         // Trim white space from the name and store the name
         $sponsor = trim($_POST['sponsor']);
     }
     if(empty($_POST['imageFilePath'])){
         // Adds name to array
-        $data_missing[] = 'Image File Path';
+        $imageFilePath = NULL;
     } else {
         // Trim white space from the name and store the name
         $imageFilePath = trim($_POST['imageFilePath']);
@@ -33,7 +33,7 @@ if(isset($_POST['submit'])){
 	
 	if(empty($_POST['recordingFilePath'])){
         // Adds name to array
-        $data_missing[] = 'Recording File Path';
+        $recordingFilePath = NULL;
     } else {
         // Trim white space from the name and store the name
         $recordingFilePath = trim($_POST['recordingFilePath']);

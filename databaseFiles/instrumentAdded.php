@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
     }
     if(empty($_POST['family'])){
         // Adds name to array
-        $data_missing[] = 'Family';
+        $family = NULL;
     } else{
         // Trim white space from the name and store the name
         $family = trim($_POST['family']);

@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
     }
     if(empty($_POST['city'])){
         // Adds name to array
-        $data_missing[] = 'City';
+        $city = NULL;
     } else {
         // Trim white space from the name and store the name
         $city = trim($_POST['city']);

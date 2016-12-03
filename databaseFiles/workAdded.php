@@ -25,14 +25,14 @@ if(isset($_POST['submit'])){
     }
     if(empty($_POST['year'])){
         // Adds name to array
-        $data_missing[] = 'Year Composed';
+        $year = NULL;
     } else {
         // Trim white space from the name and store the name
         $year = trim($_POST['year']);
     }
     if(empty($_POST['filePath'])){
         // Adds name to array
-        $data_missing[] = 'File Path';
+        $filePath = NULL;
     } else {
         // Trim white space from the name and store the name
         $filePath = trim($_POST['filePath']);

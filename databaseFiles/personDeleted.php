@@ -56,14 +56,14 @@ elseif (isset($_POST['submitInfo'])){
     }
     if(empty($_POST['MTAStartDate'])){
         // Adds name to array
-        $data_missing[] = 'Mount Allison Start Date';
+        $MTAStartDate = NULL;
     } else{
         // Trim white space from the name and store the name
         $MTAStartDate = trim($_POST['MTAStartDate']);
     }
     if(empty($_POST['MTAEndDate'])){
         // Adds name to array
-        $data_missing[] = 'Mount Allison End Date';
+        $MTAEndDate = NULL;
     } else {
         // Trim white space from the name and store the name
         $MTAEndDate = trim($_POST['MTAEndDate']);
