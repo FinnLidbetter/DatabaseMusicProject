@@ -44,6 +44,7 @@
 <p><b>Other</b></p>
 <p>
 <a href="databasefiles/giveFreeformQuery.php">Freeform Query</a>
+<a href="databasefiles/giveSearch.php">Search</a>
 </p>
 </body>
 </html>
