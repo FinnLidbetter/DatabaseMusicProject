@@ -103,7 +103,7 @@ if(isset($_POST['submit'])){
 </p>
 
 <p>Concert Name:
-<input type="text" name="sponsor" size="30" value="" />
+<input type="text" name="concertName" size="30" value="" />
 </p>
 
 <p>Concert Date:
