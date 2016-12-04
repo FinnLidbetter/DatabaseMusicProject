@@ -28,6 +28,28 @@
 <a href="databasefiles/deletework.php">Delete Work</a>
 </p>
 
+<p><b>Update</b></p>
+<p>
+<a href="databasefiles/updateconcert.php">Update Concert</a>
+<a href="databasefiles/updateensemble.php">Update Ensemble</a>
+<a href="databasefiles/updateinstitution.php">Update Institution</a>
+<a href="databasefiles/updateinstrument.php">Update Instrument</a>
+<a href="databasefiles/updateperformance.php">Update Performance</a>
+<a href="databasefiles/updateperson.php">Update Person</a>
+<a href="databasefiles/updatework.php">Update Work</a>
+</p>
+
+<p><b>Manage Relationships</b></p>
+<p>
+<a href="databasefiles/addinstructor.php">Add a Student-Instructor Relationship</a>
+<a href="databasefiles/addinstitutionmember.php">Add a Person-Institution Relationship</a>
+<a href="databasefiles/addinstrumentplayer.php">Add a Person-Instrument Relationship</a>
+<a href="databasefiles/addindividualperformance.php">Add a Person-Performance Relationship</a>
+<a href="databasefiles/addensemblemember.php">Add a Person-Ensemble Relationship</a>
+<a href="databasefiles/addensembleperformance.php">Add an Ensemble-Performance Relationship</a>
+<a href="databasefiles/addworkperformed.php">Add a Work-Performance Relationship</a>
+</p>
+
 <p><b>View</b></p>
 <p>
 <a href="databasefiles/getConcertInfo.php">Concerts</a>
