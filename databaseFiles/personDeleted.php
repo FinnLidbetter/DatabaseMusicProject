@@ -71,9 +71,16 @@ elseif (isset($_POST['submitInfo'])){
     if(empty($data_missing)){
         
         require_once('../mysqlConnect.php');
-        $stmt = mysqli_prepare($dbc, "DELETE FROM Persons WHERE name = ? AND MTAStartDate = ? AND MTAEndDate = ?");
-        mysqli_stmt_bind_param($stmt, 'sss', $name, $MTAStartDate, $MTAEndDate);
-        
+		if($MTAStartDate == NULL) {
+			$stmt = mysqli_prepare($dbc, "DELETE FROM Persons WHERE name = ?");
+			mysqli_stmt_bind_param($stmt, 's', $name);
+		} else if ($MTAEndDate == NULL){ 
+			$stmt = mysqli_prepare($dbc, "DELETE FROM Persons WHERE name = ? AND MTAStartDate = ?");
+			mysqli_stmt_bind_param($stmt, 'ss', $name, $MTAStartDate);
+		} else {
+			$stmt = mysqli_prepare($dbc, "DELETE FROM Persons WHERE name = ? AND MTAStartDate = ? AND MTAEndDate = ?");
+			mysqli_stmt_bind_param($stmt, 'sss', $name, $MTAStartDate, $MTAEndDate);
+        }
         mysqli_stmt_execute($stmt);     
         $affected_rows = mysqli_stmt_affected_rows($stmt);
         

@@ -93,8 +93,8 @@ elseif (isset($_POST['submitInfo'])){
     if(empty($data_missing)){
         
         require_once('../mysqlConnect.php');
-        $stmt = mysqli_prepare($dbc, "DELETE FROM Performances WHERE performanceTitle = ? AND sponsor = ? AND imageFilePath = ? AND recordingFilePath = ? AND concertName = ? AND concertDate = ?");
-        mysqli_stmt_bind_param($stmt, 'ssssss', $performanceTitle, $sponsor, $imageFilePath, $recordingFilePath, $concertName, $concertDate);
+        $stmt = mysqli_prepare($dbc, "DELETE FROM Performances WHERE performanceTitle = ? AND concertName = ? AND concertDate = ?");
+        mysqli_stmt_bind_param($stmt, 'sss', $performanceTitle, $concertName, $concertDate);
         mysqli_stmt_execute($stmt);     
         $affected_rows = mysqli_stmt_affected_rows($stmt);
         
