@@ -4,6 +4,10 @@
 </head>
 <body>
 <b>Home Page</b>
+<p>
+<a href="login.php">Login</a>
+<a href="logout.php">Logout</a>
+</p>
 
 <p><b>Add</b></p>
 <p>

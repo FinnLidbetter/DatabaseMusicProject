@@ -4,6 +4,15 @@
 </head>
 <body>
 <?php
+  
+  include('../session.php');
+  /*
+  $usercheck = mysqli_query($dbc, 'SELECT USER()');
+  $userRow = mysqli_fetch_assoc($usercheck);
+  foreach ($userRow as $entry) {
+    echo $entry;
+  }
+  */
 
   $query = '';
 
@@ -12,7 +21,7 @@
   
 
     // Get a connection for the database
-    require_once('../mysqlConnect.php');
+    #require_once('../mysqlConnect.php');
 
     // Get a response from the database by sending the connection
     // and the query

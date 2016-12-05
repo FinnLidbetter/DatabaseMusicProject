@@ -5,8 +5,9 @@
 <body>
 <?php
 
+  include('../session.php');
 
-if (isset($_POST['submitInfo'])){
+  if (isset($_POST['submitInfo'])){
 
     if(empty($_POST['name'])){
         // Adds name to array
@@ -17,13 +18,15 @@ if (isset($_POST['submitInfo'])){
     }
     if(empty($data_missing)){
         
-        require_once('../mysqlConnect.php');
+        #require_once('../mysqlConnect.php');
         $stmt = mysqli_prepare($dbc, "DELETE FROM Instruments WHERE name = ?");
-        mysqli_stmt_bind_param($stmt, 's', $name);
-        
-        mysqli_stmt_execute($stmt);     
-        $affected_rows = mysqli_stmt_affected_rows($stmt);
-        
+        $affected_rows = 0;
+        if ($stmt) {
+          mysqli_stmt_bind_param($stmt, 's', $name);
+          
+          mysqli_stmt_execute($stmt);     
+          $affected_rows = mysqli_stmt_affected_rows($stmt);
+        }
         if($affected_rows == 1){         
             echo 'Instrument Deleted';
             mysqli_stmt_close($stmt);         
@@ -31,8 +34,10 @@ if (isset($_POST['submitInfo'])){
             
         } else {           
             echo 'Error Occurred<br />';
-            echo mysqli_error();        
-            mysqli_stmt_close($stmt);         
+            echo mysqli_error($dbc);    
+            if ($stmt) {
+              mysqli_stmt_close($stmt);
+            }
             mysqli_close($dbc);         
         }       
     } else {      

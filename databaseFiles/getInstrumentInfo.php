@@ -3,47 +3,49 @@
 </p>
 
 <?php
-// Get a connection for the database
-require_once('../mysqlConnect.php');
+  // Get a connection for the database
+  //require_once('../mysqlConnect.php');
+  include('../session.php');
 
-// Create a query for the database
-$query = "SELECT name, family FROM Instruments";
 
-// Get a response from the database by sending the connection
-// and the query
-$response = @mysqli_query($dbc, $query);
+  // Create a query for the database
+  $query = "SELECT name, family FROM Instruments";
 
-// If the query executed properly proceed
-if($response){
+  // Get a response from the database by sending the connection
+  // and the query
+  $response = @mysqli_query($dbc, $query);
 
-echo '<table align="left"
-cellspacing="5" cellpadding="8">
+  // If the query executed properly proceed
+  if($response){
 
-<tr><td align="left"><b>name</b></td>
-<td align="left"><b>family</b></td></tr>';
+    echo '<table align="left"
+    cellspacing="5" cellpadding="8">
 
-// mysqli_fetch_array will return a row of data from the query
-// until no further data is available
-while($row = mysqli_fetch_array($response)){
+    <tr><td align="left"><b>name</b></td>
+    <td align="left"><b>family</b></td></tr>';
 
-echo '<tr><td align="left">' . 
-$row['name'] . '</td><td align="left">' . 
-$row['family'] . '</td><td align="left">';
+    // mysqli_fetch_array will return a row of data from the query
+    // until no further data is available
+    while($row = mysqli_fetch_array($response)){
 
-echo '</tr>';
-}
+      echo '<tr><td align="left">' . 
+      $row['name'] . '</td><td align="left">' . 
+      $row['family'] . '</td><td align="left">';
 
-echo '</table>';
+      echo '</tr>';
+    }
 
-} else {
+    echo '</table>';
 
-echo "Couldn't issue database query<br />";
+  } else {
 
-echo mysqli_error($dbc);
+    echo "Couldn't issue database query<br />";
 
-}
+    echo mysqli_error($dbc);
 
-// Close connection to the database
-mysqli_close($dbc);
+  }
+
+  // Close connection to the database
+  mysqli_close($dbc);
 
 ?>

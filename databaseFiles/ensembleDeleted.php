@@ -5,7 +5,9 @@
 <body>
 <?php
 
-if(isset($_POST['submitID'])){
+  include('../session.php');
+
+  if(isset($_POST['submitID'])){
     
     $data_missing = array();
     
@@ -19,7 +21,7 @@ if(isset($_POST['submitID'])){
 
     if(empty($data_missing)){
         
-        require_once('../mysqlConnect.php');
+        #require_once('../mysqlConnect.php');
         $stmt = mysqli_prepare($dbc, "DELETE FROM Ensembles WHERE id = ?");
         mysqli_stmt_bind_param($stmt, 'd', $id);
         
