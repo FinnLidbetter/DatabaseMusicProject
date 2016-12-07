@@ -3,6 +3,8 @@
   // Note that this code was retrieved from https://www.tutorialspoint.com/php/php_mysql_login.htm
    include("config.php");
    session_start();
+  
+   $error = '';
    
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form 
@@ -10,6 +12,8 @@
       $myusername = mysqli_real_escape_string($dbc,$_POST['username']);
       $mypassword = mysqli_real_escape_string($dbc,$_POST['password']); 
       
+
+
       $sql = "SELECT * FROM mysql.user WHERE User='$myusername' AND Password=PASSWORD('$mypassword')";
       #$sql = "SELECT * FROM mysql.user";
       $result = mysqli_query($dbc,$sql);
@@ -19,7 +23,6 @@
       
       $count = mysqli_num_rows($result);
       // If result matched $myusername and $mypassword, table row must be 1 row
-		  $error = '';
       if($count == 1) {
         $_SESSION['login_user'] = $myusername;
         $_SESSION['login_password'] = $mypassword;
