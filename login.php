@@ -19,7 +19,7 @@
       
       $count = mysqli_num_rows($result);
       // If result matched $myusername and $mypassword, table row must be 1 row
-		
+		  $error = '';
       if($count == 1) {
         $_SESSION['login_user'] = $myusername;
         $_SESSION['login_password'] = $mypassword;
@@ -73,7 +73,9 @@
                </form>
                
                
-               <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
+               <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php 
+               
+               echo $error; ?></div>
 					      
             </div>
 				
