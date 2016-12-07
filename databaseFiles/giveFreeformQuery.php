@@ -3,6 +3,9 @@
 <title>Enter Query</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/freeformQuery.php" method="post">
 
 <b>Free form SQL Query</b>

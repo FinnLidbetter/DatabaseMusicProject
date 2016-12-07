@@ -7,7 +7,8 @@
 
 
 <?php 
-require_once('../mysqlConnect.php');
+//require_once('../mysqlConnect.php');
+include('../session.php');
 $options = '';
 $ids = @mysqli_query($dbc, "SELECT id FROM Persons");
 while($row = mysqli_fetch_array($ids)) {

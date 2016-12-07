@@ -58,15 +58,18 @@ if(isset($_POST['submit'])){
         include('../session.php');
 
 		$stmt = mysqli_prepare($dbc, "UPDATE WorksYear SET title = ?, composer = ?, year = ? WHERE title = ? AND composer = ?");
-		mysqli_stmt_bind_param($stmt, 'sssss', $newTitle, $newComposer, $newYear, $curTitle, $curComposer);     	
-        mysqli_stmt_execute($stmt);  
-
+		$affected_rows = 0;
+    if ($stmt) {
+      mysqli_stmt_bind_param($stmt, 'sssss', $newTitle, $newComposer, $newYear, $curTitle, $curComposer);     	
+          mysqli_stmt_execute($stmt);  
+    }
 		$stmt = mysqli_prepare($dbc, "UPDATE WorksFilePath SET title = ?, composer = ?, filePath = ? WHERE title = ? AND composer = ?");
-		mysqli_stmt_bind_param($stmt, 'sssss', $newTitle, $newComposer, $newFilePath, $curTitle, $curComposer);     	
+		if ($stmt) {
+        mysqli_stmt_bind_param($stmt, 'sssss', $newTitle, $newComposer, $newFilePath, $curTitle, $curComposer);     	
         mysqli_stmt_execute($stmt);    
 		
         $affected_rows = mysqli_stmt_affected_rows($stmt);
-        
+    }
         if($affected_rows == 1){         
             echo 'Works Updated';
             mysqli_stmt_close($stmt);         
@@ -74,8 +77,10 @@ if(isset($_POST['submit'])){
             
         } else {           
             echo 'Error Occurred<br />';
-            echo mysqli_error();        
-            mysqli_stmt_close($stmt);         
+            echo mysqli_error($dbc);
+            if ($stmt) {
+              mysqli_stmt_close($stmt);
+            }
             mysqli_close($dbc);         
         }       
     } else {      

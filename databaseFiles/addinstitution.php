@@ -3,6 +3,9 @@
 <title>Add Concert</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/institutionadded.php" method="post">
 
 <b>Add a New Institution</b>

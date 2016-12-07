@@ -3,6 +3,9 @@
 <title>Add a Student-Instructor Relationship</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/instructorAdded.php" method="post">
 
 <b>Add a Student-Instructor Relationship: Enter the Student's Info, Then the Instructor's Info</b>

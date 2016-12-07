@@ -1,6 +1,9 @@
 <title>Delete Concert Entry</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/concertDeleted.php" method="post">
 
 <b>Input a Concert's Name and Date.</b>

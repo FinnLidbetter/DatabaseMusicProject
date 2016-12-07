@@ -3,6 +3,9 @@
 <title>Update Performance</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/performanceUpdated.php" method="post">
 
 <b>Update Performance: Enter the Performance's Current Info, Then Its New Info</b>

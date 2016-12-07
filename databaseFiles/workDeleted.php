@@ -27,16 +27,18 @@ if (isset($_POST['submit'])){
         //require_once('../mysqlConnect.php');
         include('../session.php');
         $stmt = mysqli_prepare($dbc, "DELETE FROM WorksYear WHERE title = ? AND composer = ?");
-        mysqli_stmt_bind_param($stmt, 'ss', $title, $composer);
-        mysqli_stmt_execute($stmt);   
-		
-        $stmt = mysqli_prepare($dbc, "DELETE FROM WorksFilePath WHERE title = ? AND composer = ?");
-        mysqli_stmt_bind_param($stmt, 'ss', $title, $composer);
-        mysqli_stmt_execute($stmt);  
-
-		
-        $affected_rows = mysqli_stmt_affected_rows($stmt);
         
+        $affected_rows = 0;
+        if ($stmt) {
+          mysqli_stmt_bind_param($stmt, 'ss', $title, $composer);
+          mysqli_stmt_execute($stmt);   
+		    }
+        $stmt = mysqli_prepare($dbc, "DELETE FROM WorksFilePath WHERE title = ? AND composer = ?");
+        if ($stmt) {
+          mysqli_stmt_bind_param($stmt, 'ss', $title, $composer);
+          mysqli_stmt_execute($stmt);  
+          $affected_rows = mysqli_stmt_affected_rows($stmt);
+        }
         if($affected_rows == 1){         
             echo 'Work Deleted';
             mysqli_stmt_close($stmt);         
@@ -44,8 +46,10 @@ if (isset($_POST['submit'])){
             
         } else {           
             echo 'Error Occurred<br />';
-            echo mysqli_error();        
-            mysqli_stmt_close($stmt);         
+            echo mysqli_error($dbc);
+            if ($stmt) {
+              mysqli_stmt_close($stmt);
+            }
             mysqli_close($dbc);         
         }       
     } else {      

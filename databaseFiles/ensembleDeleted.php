@@ -23,11 +23,13 @@
         
         #require_once('../mysqlConnect.php');
         $stmt = mysqli_prepare($dbc, "DELETE FROM Ensembles WHERE id = ?");
-        mysqli_stmt_bind_param($stmt, 'd', $id);
-        
-        mysqli_stmt_execute($stmt);     
-        $affected_rows = mysqli_stmt_affected_rows($stmt);
-        
+        $affected_rows = 0;
+        if ($stmt) {
+          mysqli_stmt_bind_param($stmt, 'd', $id);
+          
+          mysqli_stmt_execute($stmt);     
+          $affected_rows = mysqli_stmt_affected_rows($stmt);
+        }
         if($affected_rows == 1){         
             echo 'Ensemble Deleted';
             mysqli_stmt_close($stmt);         

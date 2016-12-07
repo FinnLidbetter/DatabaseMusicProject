@@ -3,6 +3,9 @@
 <title>Add a Person-Ensemble Relationship</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/ensembleMemberAdded.php" method="post">
 
 <b>Add a relationship that shows a person is part of an ensemble: enter the person's info, then the ensemble's info, and finally the intstrument he/she plays.</b>

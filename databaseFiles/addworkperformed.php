@@ -3,6 +3,9 @@
 <title>Add a Work-Performance Relationship</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/workPerformedAdded.php" method="post">
 
 <b>Add a relationship that shows a musical work was performed in a specific performance: enter the work's info, then the performance's info.</b>

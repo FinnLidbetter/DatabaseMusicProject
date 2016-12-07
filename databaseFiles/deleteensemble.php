@@ -1,6 +1,9 @@
 <title>Delete Ensemble Entry</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/ensembleDeleted.php" method="post">
 
 <b>Input an Emsemble's ID, or all their info.</b>

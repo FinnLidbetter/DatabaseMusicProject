@@ -3,6 +3,9 @@
 <title>Add a Person-Instrument Relationship</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/instrumentPlayerAdded.php" method="post">
 
 <b>Add a relationship that shows a person can play a specific instrument: enter the person's Info, then the instrument's name</b>

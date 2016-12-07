@@ -3,6 +3,9 @@
 <title>Add Musical Work</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/workAdded.php" method="post">
 
 <b>Add a New Work</b>

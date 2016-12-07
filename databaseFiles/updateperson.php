@@ -3,6 +3,9 @@
 <title>Update Person</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/personUpdated.php" method="post">
 
 <b>Update Person: Enter the Person's Current Info, Then Its New Info</b>

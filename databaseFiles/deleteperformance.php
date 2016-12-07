@@ -3,6 +3,9 @@
 <title>Delete Performance Entry</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/performanceDeleted.php" method="post">
 
 <b>Input a performance's ID, or all its info.</b>

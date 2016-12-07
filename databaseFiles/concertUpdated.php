@@ -49,20 +49,25 @@ if(isset($_POST['submit'])){
         //require_once('../mysqlConnect.php');
         include('../session.php');
         $stmt = mysqli_prepare($dbc, "UPDATE Concerts SET name = ?, date = ?, venue = ? WHERE name = ? AND date = ?");
-        mysqli_stmt_bind_param($stmt, 'sssss', $newName, $newDate, $newVenue, $curName, $curDate);
         
-        mysqli_stmt_execute($stmt);     
-        $affected_rows = mysqli_stmt_affected_rows($stmt);
-        
+        $affected_rows = 0;
+        if ($stmt) {
+          mysqli_stmt_bind_param($stmt, 'sssss', $newName, $newDate, $newVenue, $curName, $curDate);
+          
+          mysqli_stmt_execute($stmt);     
+          $affected_rows = mysqli_stmt_affected_rows($stmt);
+        }
         if($affected_rows == 1){         
             echo 'Concert Updated';
-            mysqli_stmt_close($stmt);         
+            mysqli_stmt_close($stmt);
             mysqli_close($dbc);
             
         } else {           
             echo 'Error Occurred<br />';
-            echo mysqli_error();        
-            mysqli_stmt_close($stmt);         
+            echo mysqli_error($dbc);
+            if ($stmt) {
+              mysqli_stmt_close($stmt);     
+            }
             mysqli_close($dbc);         
         }       
     } else {      

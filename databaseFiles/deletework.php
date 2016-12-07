@@ -3,6 +3,9 @@
 <title>Delete Musical Work</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/workDeleted.php" method="post">
 
 <b>Enter a Work's Title and Composer</b>

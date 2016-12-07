@@ -3,6 +3,9 @@
 <title>Add Person</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/personadded.php" method="post">
 
 <b>Add a New Person</b>

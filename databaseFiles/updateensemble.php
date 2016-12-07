@@ -3,6 +3,9 @@
 <title>Update Ensemble</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/ensembleUpdated.php" method="post">
 
 <b>Update Ensemble: Enter the Ensemble's Current Name and Date, Then Its New Info</b>

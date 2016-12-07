@@ -3,6 +3,9 @@
 <title>Update Instrument</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/instrumentUpdated.php" method="post">
 
 <b>Update Instrument: Enter the Instrument's Current Name, Then Its New Info</b>

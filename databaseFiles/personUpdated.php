@@ -54,22 +54,32 @@ if(isset($_POST['submit'])){
     if(empty($data_missing)){
 
 	
-        //require_once('../mysqlConnect.php');
-        include('../session.php');
- 		if($newStartDate == NULL) {
+    //require_once('../mysqlConnect.php');
+    include('../session.php');
+ 		
+    if($newStartDate == NULL) {
 			$stmt = mysqli_prepare($dbc, "UPDATE Persons SET name = ?, MTAStartDate = ?, MTAEndDate = ? WHERE name = ?");
-			mysqli_stmt_bind_param($stmt, 'ssss', $newName, $newStartDate, $newEndDate, $curName);
+			if ($stmt) {
+        mysqli_stmt_bind_param($stmt, 'ssss', $newName, $newStartDate, $newEndDate, $curName);
+      }
 		} else if ($newEndDate == NULL){ 
 			$stmt = mysqli_prepare($dbc, "UPDATE Persons SET name = ?, MTAStartDate = ?, MTAEndDate = ? WHERE name = ? AND MTAStartDate = ?");
-			mysqli_stmt_bind_param($stmt, 'sssss', $newName, $newStartDate, $newEndDate, $curName, $curStartDate);
+			if ($stmt) {
+        mysqli_stmt_bind_param($stmt, 'sssss', $newName, $newStartDate, $newEndDate, $curName, $curStartDate);
+      }
 		} else {
 			$stmt = mysqli_prepare($dbc, "UPDATE Persons SET name = ?, MTAStartDate = ?, MTAEndDate = ? WHERE name = ? AND MTAStartDate = ? AND MTAEndDate = ?");
-			mysqli_stmt_bind_param($stmt, 'ssssss', $newName, $newStartDate, $newEndDate, $curName, $curStartDate, $curEndDate);
-        }       
-		
+			if ($stmt) {
+        mysqli_stmt_bind_param($stmt, 'ssssss', $newName, $newStartDate, $newEndDate, $curName, $curStartDate, $curEndDate);
+      }
+    }       
+	      
+       $affected_rows = 0;
+    if ($stmt) {
+
         mysqli_stmt_execute($stmt);     
         $affected_rows = mysqli_stmt_affected_rows($stmt);
-        
+    }
         if($affected_rows == 1){         
             echo 'Persons Updated';
             mysqli_stmt_close($stmt);         
@@ -77,8 +87,10 @@ if(isset($_POST['submit'])){
             
         } else {           
             echo 'Error Occurred<br />';
-            echo mysqli_error();        
-            mysqli_stmt_close($stmt);         
+            echo mysqli_error($dbc);
+            if ($stmt) {
+              mysqli_stmt_close($stmt);
+            }
             mysqli_close($dbc);         
         }       
     } else {      

@@ -3,6 +3,9 @@
 <title>Add an Ensemble-Performance Relationship</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/ensemblePerformanceAdded.php" method="post">
 
 <b>Add a relationship that shows an ensemble performed a performance: enter the ensemble's info, then the performance's info.</b>

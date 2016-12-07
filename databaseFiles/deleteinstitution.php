@@ -1,6 +1,9 @@
 <title>Delete Institution Entry</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/institutionDeleted.php" method="post">
 
 <b>Input an Institution's Name and Country.</b>

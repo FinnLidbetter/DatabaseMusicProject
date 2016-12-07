@@ -42,18 +42,22 @@ if(isset($_POST['submit'])){
         //require_once('../mysqlConnect.php');
         include('../session.php');
         $stmt = mysqli_prepare($dbc, "INSERT INTO WorksYear (title, composer, year) VALUES (?, ?, ?)");
-        mysqli_stmt_bind_param($stmt, 'ssd', $title,
-                               $composer, $year);
         
-        mysqli_stmt_execute($stmt); 
-		
-		$stmt = mysqli_prepare($dbc, "INSERT INTO WorksFilePath (title, composer, filePath) VALUES (?, ?, ?)");
-        mysqli_stmt_bind_param($stmt, 'sss', $title,
-                               $composer, $filePath);
-        
-        mysqli_stmt_execute($stmt);    
-        $affected_rows = mysqli_stmt_affected_rows($stmt);
-        
+        $affected_rows = 0;
+        if ($stmt) {
+          mysqli_stmt_bind_param($stmt, 'ssd', $title,
+                                 $composer, $year);
+          
+          mysqli_stmt_execute($stmt); 
+		    }
+        $stmt = mysqli_prepare($dbc, "INSERT INTO WorksFilePath (title, composer, filePath) VALUES (?, ?, ?)");
+        if ($stmt) {
+          mysqli_stmt_bind_param($stmt, 'sss', $title,
+                                 $composer, $filePath);
+          
+          mysqli_stmt_execute($stmt);    
+          $affected_rows = mysqli_stmt_affected_rows($stmt);
+        }
         if($affected_rows == 1){         
             echo 'Work Entered';
             mysqli_stmt_close($stmt);         
@@ -61,8 +65,10 @@ if(isset($_POST['submit'])){
             
         } else {           
             echo 'Error Occurred<br />';
-            echo mysqli_error();        
-            mysqli_stmt_close($stmt);         
+            echo mysqli_error($dbc);
+            if ($stmt) {
+              mysqli_stmt_close($stmt);
+            }
             mysqli_close($dbc);         
         }       
     } else {      

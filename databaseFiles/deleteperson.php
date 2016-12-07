@@ -3,6 +3,9 @@
 <title>Delete Person Entry</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/personDeleted.php" method="post">
 
 <b>Input a person's ID, or all their info.</b>

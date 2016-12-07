@@ -3,6 +3,9 @@
 <title>Update Institution</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/institutionUpdated.php" method="post">
 
 <b>Update Institution: Enter the Institution's Current Name and Country, Then Its New Info</b>

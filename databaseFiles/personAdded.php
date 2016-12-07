@@ -36,12 +36,14 @@ if(isset($_POST['submit'])){
         include('../session.php');
         
         $stmt = mysqli_prepare($dbc, "INSERT INTO Persons (name, MTAStartDate, MTAEndDate) VALUES (?, ?, ?)");
-        mysqli_stmt_bind_param($stmt, 'sss', $name,
-                               $MTAStartDate, $MTAEndDate);
-        
-        mysqli_stmt_execute($stmt);     
-        $affected_rows = mysqli_stmt_affected_rows($stmt);
-        
+        $affected_rows = 0;
+        if ($stmt) {
+          mysqli_stmt_bind_param($stmt, 'sss', $name,
+                                 $MTAStartDate, $MTAEndDate);
+          
+          mysqli_stmt_execute($stmt);     
+          $affected_rows = mysqli_stmt_affected_rows($stmt);
+        }
         if($affected_rows == 1){         
             echo 'Person Entered';
             mysqli_stmt_close($stmt);         
@@ -49,8 +51,10 @@ if(isset($_POST['submit'])){
             
         } else {           
             echo 'Error Occurred<br />';
-            echo mysqli_error();        
-            mysqli_stmt_close($stmt);         
+            echo mysqli_error($dbc);
+            if ($stmt) {
+              mysqli_stmt_close($stmt);
+            }
             mysqli_close($dbc);         
         }       
     } else {      

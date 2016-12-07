@@ -3,6 +3,9 @@
 <title>Add Musical Work and Concert</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/concertWorkAdded.php" method="post">
 
 <b>Add a the info for a work, the concert it was performed in, and the corresponding performance ID</b>

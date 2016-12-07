@@ -1,6 +1,9 @@
 <title>Delete Instrument Entry</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/instrumentDeleted.php" method="post">
 
 <b>Input an Instrument's Name.</b>

@@ -3,6 +3,9 @@
 <title>Add Performance</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/performanceadded.php" method="post">
 
 <b>Add a New Performance</b>

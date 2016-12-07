@@ -3,6 +3,9 @@
 <title>Update Work</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/workUpdated.php" method="post">
 
 <b>Update Person: Enter the Work's Current Title and Composer, Then Its New Info</b>

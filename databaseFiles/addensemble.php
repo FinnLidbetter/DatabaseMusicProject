@@ -3,6 +3,9 @@
 <title>Add Ensemble</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/ensembleadded.php" method="post">
 
 <b>Add a New Ensemble</b>

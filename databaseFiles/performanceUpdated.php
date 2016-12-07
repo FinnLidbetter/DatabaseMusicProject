@@ -78,11 +78,14 @@ if(isset($_POST['submit'])){
         //require_once('../mysqlConnect.php');
         include('../session.php');
 		$stmt = mysqli_prepare($dbc, "UPDATE Performances SET performanceTitle = ?, sponsor = ?, imageFilePath = ?, recordingFilePath = ?, concertName = ?, concertDate = ? WHERE performanceTitle = ? AND concertName = ? AND concertDate = ?");
-		mysqli_stmt_bind_param($stmt, 'sssssssss', $newPerfTitle, $sponsor, $imageFilePath, $recordingFilePath, $newConName, $newConDate, $curPerfTitle, $curConName, $curConDate);     
+		
+    $affected_rows = 0;
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, 'sssssssss', $newPerfTitle, $sponsor, $imageFilePath, $recordingFilePath, $newConName, $newConDate, $curPerfTitle, $curConName, $curConDate);     
 		
         mysqli_stmt_execute($stmt);     
         $affected_rows = mysqli_stmt_affected_rows($stmt);
-        
+    }
         if($affected_rows == 1){         
             echo 'Performances Updated';
             mysqli_stmt_close($stmt);         
@@ -90,8 +93,10 @@ if(isset($_POST['submit'])){
             
         } else {           
             echo 'Error Occurred<br />';
-            echo mysqli_error();        
-            mysqli_stmt_close($stmt);         
+            echo mysqli_error($dbc);
+            if ($stmt) {
+              mysqli_stmt_close($stmt);
+            }
             mysqli_close($dbc);         
         }       
     } else {      

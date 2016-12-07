@@ -3,6 +3,9 @@
 <title>Add a Person-Institution Relationship</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/institutionMemberAdded.php" method="post">
 
 <b>Add a relationship that shows a person attended a particular institution: enter the person's Info, then the institution's info</b>

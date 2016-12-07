@@ -3,6 +3,9 @@
 <title>Update Concert</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/concertUpdated.php" method="post">
 
 <b>Update Concert: Enter the Concert's Current Name and Date, Then Its New Info</b>

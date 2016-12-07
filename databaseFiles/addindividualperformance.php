@@ -3,6 +3,9 @@
 <title>Add a Person-Performance Relationship</title>
 </head>
 <body>
+<?php
+  include('../session.php');
+?>
 <form action="http://localhost/DatabaseMusicProject/databaseFiles/individualPerformanceAdded.php" method="post">
 
 <b>Add a relationship that shows an individual performed a performance: enter the person's info, then the performance's info.</b>

@@ -60,11 +60,13 @@ if(isset($_POST['submit'])){
 		$performanceID = mysqli_fetch_assoc($response2);
 		
 		$stmt = mysqli_prepare($dbc, "INSERT INTO KeyTable(ensembleID, performanceID) VALUES(?,?)");
-		mysqli_stmt_bind_param($stmt, 'ii', $ensembleID['id'], $performanceID['id']);
+		$affected_rows = 0;
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, 'ii', $ensembleID['id'], $performanceID['id']);
 		
         mysqli_stmt_execute($stmt);     
         $affected_rows = mysqli_stmt_affected_rows($stmt);
-        
+    }
         if($affected_rows == 1){         
             echo 'Ensemble-Performance Relationship Added';
             mysqli_stmt_close($stmt);         
@@ -72,8 +74,10 @@ if(isset($_POST['submit'])){
             
         } else {           
             echo 'Error Occurred<br />';
-            echo mysqli_error();        
-            mysqli_stmt_close($stmt);         
+            echo mysqli_error($dbc);
+            if ($stmt) {
+              mysqli_stmt_close($stmt);
+            }
             mysqli_close($dbc);         
         }       
     } else {      
