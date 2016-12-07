@@ -7,7 +7,7 @@
   require_once('../config.php');
 
   // Create a query for the database
-  $query = "SELECT worksTitle, worksComposer, name, ensembleName, concertDate FROM WorksPlayed";
+  $query = "SELECT * FROM WorksPlayed";
 
   // Get a response from the database by sending the connection
   // and the query
@@ -19,11 +19,13 @@
     echo '<table align="left"
     cellspacing="5" cellpadding="8">
 
-    <tr><td align="left"><b>Title</b></td>
-    <td align="left"><b>Composer</b></td>
-    <td align="left"><b>Performer Name</b></td>
-    <td align="left"><b>Ensemble Name</b></td>
-    <td align="left"><b>Concert Date</b></td></tr>';
+    <tr><td align="left"><b>Work\'s Title</b></td>
+    <td align="left"><b>Work\'s Composer</b></td>
+    <td align="left"><b>Performance Title</b></td>
+    <td align="left"><b>Performance Date</b></td>
+    <td align="left"><b>Performer: Ensemble</b></td>
+	<td align="left"><b>Performer: Soloist</b></td></tr>';
+
 
     // mysqli_fetch_array will return a row of data from the query
     // until no further data is available
@@ -32,9 +34,10 @@
       echo '<tr><td align="left">' . 
       $row['worksTitle'] . '</td><td align="left">' . 
       $row['worksComposer'] . '</td><td align="left">' .
-      $row['name'] . '</td><td align="left">' .
+      $row['performanceTitle'] . '</td><td align="left">' .
+      $row['concertDate'] . '</td><td align="left">' .
       $row['ensembleName'] . '</td><td align="left">' .
-      $row['concertDate'] . '</td><td align="left">';
+      $row['soloistName'] . '</td><td align="left">';
 
       echo '</tr>';
     }
