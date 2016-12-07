@@ -70,7 +70,7 @@
 <a href="databasefiles/getEnsembleMembersInfo.php">EnsembleMembers</a>
 <a href="databasefiles/getMtaAttendeesInfo.php">MtA Attendees</a>
 <a href="databasefiles/getStudentsInfo.php">Students</a>
-<a href="databasefiles/getWorksPlayedInfo.php">Works Played</a>
+<a href="databasefiles/getWorksPlayedInfo.php">Ensemble Works Played</a>
 </p>
 
 <p><b>Other</b></p>
