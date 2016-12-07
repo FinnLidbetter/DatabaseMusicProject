@@ -71,6 +71,7 @@
 <a href="databasefiles/getMtaAttendeesInfo.php">MtA Attendees</a>
 <a href="databasefiles/getStudentsInfo.php">Students</a>
 <a href="databasefiles/getWorksPlayedInfo.php">Ensemble Works Played</a>
+<a href="databasefiles/getSoloWorksPlayedInfo.php">Solo Works Played</a>
 </p>
 
 <p><b>Other</b></p>

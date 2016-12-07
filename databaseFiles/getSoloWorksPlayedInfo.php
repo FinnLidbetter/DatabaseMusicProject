@@ -7,7 +7,7 @@
   require_once('../config.php');
 
   // Create a query for the database
-  $query = "SELECT worksTitle, worksComposer, ensembleName, concertDate FROM ensembleWorksPlayed";
+  $query = "SELECT worksTitle, worksComposer, personName, concertDate FROM soloWorksPlayed";
 
   // Get a response from the database by sending the connection
   // and the query
@@ -21,7 +21,7 @@
 
     <tr><td align="left"><b>Title</b></td>
     <td align="left"><b>Composer</b></td>
-    <td align="left"><b>Ensemble Name</b></td>
+    <td align="left"><b>Performer Name</b></td>
     <td align="left"><b>Concert Date</b></td></tr>';
 
     // mysqli_fetch_array will return a row of data from the query
@@ -31,7 +31,7 @@
       echo '<tr><td align="left">' . 
       $row['worksTitle'] . '</td><td align="left">' . 
       $row['worksComposer'] . '</td><td align="left">' .
-      $row['ensembleName'] . '</td><td align="left">' .
+      $row['personName'] . '</td><td align="left">' .
       $row['concertDate'] . '</td><td align="left">';
 
       echo '</tr>';
