@@ -18,6 +18,7 @@
 <a href="databasefiles/addperformance.php">Add Performance</a>
 <a href="databasefiles/addperson.php">Add Person</a>
 <a href="databasefiles/addwork.php">Add Work</a>
+<a href="databasefiles/addconcertwork.php">Add a Concert Work Pair</a>
 <a href="databasefiles/addrelationship.php">Add Relationship</a>
 </p>
 
@@ -30,6 +31,7 @@
 <a href="databasefiles/deleteperformance.php">Delete Performance</a>
 <a href="databasefiles/deleteperson.php">Delete Person</a>
 <a href="databasefiles/deletework.php">Delete Work</a>
+<a href="databasefiles/deleteconcertwork.php">Delete A Concert Work Pair</a>
 </p>
 
 <p><b>Update</b></p>
@@ -41,6 +43,7 @@
 <a href="databasefiles/updateperformance.php">Update Performance</a>
 <a href="databasefiles/updateperson.php">Update Person</a>
 <a href="databasefiles/updatework.php">Update Work</a>
+<a href="databasefiles/updateconcertwork.php">Update a Concert Work Pair</a>
 </p>
 
 <p><b>Manage Relationships</b></p>
