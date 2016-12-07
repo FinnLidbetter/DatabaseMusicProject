@@ -54,7 +54,8 @@ if(isset($_POST['submit'])){
     if(empty($data_missing)){
 
 	
-        require_once('../mysqlConnect.php');
+        //require_once('../mysqlConnect.php');
+        include('../session.php');
  		if($newStartDate == NULL) {
 			$stmt = mysqli_prepare($dbc, "UPDATE Persons SET name = ?, MTAStartDate = ?, MTAEndDate = ? WHERE name = ?");
 			mysqli_stmt_bind_param($stmt, 'ssss', $newName, $newStartDate, $newEndDate, $curName);

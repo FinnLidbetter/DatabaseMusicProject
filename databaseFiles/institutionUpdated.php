@@ -46,7 +46,8 @@ if(isset($_POST['submit'])){
     }
     if(empty($data_missing)){
         
-        require_once('../mysqlConnect.php');
+        //require_once('../mysqlConnect.php');
+        include('../session.php');
         $stmt = mysqli_prepare($dbc, "UPDATE Institutions SET name = ?, country = ?, city = ? WHERE name = ? AND country = ?");
         mysqli_stmt_bind_param($stmt, 'sssss', $newName, $newCountry, $newCity, $curName, $curCountry);
         

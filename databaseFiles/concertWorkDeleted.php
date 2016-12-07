@@ -38,7 +38,8 @@ if (isset($_POST['submit'])){
     }
     if(empty($data_missing)){
         
-        require_once('../mysqlConnect.php');
+        //require_once('../mysqlConnect.php');
+        include('../session.php');
         $stmt = mysqli_prepare($dbc, "DELETE FROM ConcertWorks WHERE workTitle = ? AND workComposer = ? AND concertName = ? AND concertDate = ?");
         mysqli_stmt_bind_param($stmt, 'ssss', $title, $composer, $name, $date);
         mysqli_stmt_execute($stmt);   

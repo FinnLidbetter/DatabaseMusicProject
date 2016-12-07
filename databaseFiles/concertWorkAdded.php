@@ -46,7 +46,8 @@ if(isset($_POST['submit'])){
     }
     if(empty($data_missing)){
         
-        require_once('../mysqlConnect.php');
+        //require_once('../mysqlConnect.php');
+        include('../session.php');
         $stmt = mysqli_prepare($dbc, "INSERT INTO ConcertWorks (concertName, concertDate, workTitle, workComposer, performanceID) VALUES (?, ?, ?, ?, ?)");
         mysqli_stmt_bind_param($stmt, 'ssssd', $conName, $date, $workTitle, $composer, $perfID);
         

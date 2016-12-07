@@ -47,7 +47,8 @@ if(isset($_POST['submit'])){
     if(empty($data_missing)){
 
 	
-        require_once('../mysqlConnect.php');
+        //require_once('../mysqlConnect.php');
+        include('../session.php');
 		
 		$query1 = 'SELECT id FROM Performances WHERE performanceTitle = \'' . $performanceTitle . '\' AND concertName = \'' . $concertName . '\' AND concertDate = \'' . $concertDate . '\';';
 		

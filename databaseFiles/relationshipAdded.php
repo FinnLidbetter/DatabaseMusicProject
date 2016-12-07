@@ -5,7 +5,8 @@
 <body>
 <?php
 //Connect to the database
-require_once('../mysqlConnect.php');
+    //require_once('../mysqlConnect.php');
+        include('../session.php');
 
 //Build a list for the dropdown menu 
 $options = '';

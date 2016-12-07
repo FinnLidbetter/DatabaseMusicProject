@@ -32,7 +32,8 @@ if(isset($_POST['submit'])){
     }
     if(empty($data_missing)){
         
-        require_once('../mysqlConnect.php');
+        //require_once('../mysqlConnect.php');
+        include('../session.php');
         $stmt = mysqli_prepare($dbc, "UPDATE Instruments SET name = ?, family = ? WHERE name = ?");
         mysqli_stmt_bind_param($stmt, 'sss', $newName, $newFamily, $curName);
         

@@ -24,7 +24,8 @@ if (isset($_POST['submitInfo'])){
     }
     if(empty($data_missing)){
         
-        require_once('../mysqlConnect.php');
+        //require_once('../mysqlConnect.php');
+        include('../session.php');
         $stmt = mysqli_prepare($dbc, "DELETE FROM Institutions WHERE name = ? AND country = ?");
         mysqli_stmt_bind_param($stmt, 'ss', $name, $country);
         

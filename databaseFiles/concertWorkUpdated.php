@@ -75,7 +75,8 @@ if(isset($_POST['submit'])){
     if(empty($data_missing)){
 
 	
-        require_once('../mysqlConnect.php');
+        //require_once('../mysqlConnect.php');
+        include('../session.php');
 
 		$stmt = mysqli_prepare($dbc, "UPDATE ConcertWorks SET workTitle = ?, workComposer = ?, concertName = ?, concertDate = ?, performanceID = ? WHERE workTitle = ? AND workComposer = ? AND concertName = ? AND concertDate = ?");
 		mysqli_stmt_bind_param($stmt, 'ssssdssss', $newTitle, $newComposer, $newName, $newDate, $newID, $curTitle, $curComposer, $curName, $curDate);     	

@@ -24,7 +24,8 @@ if (isset($_POST['submit'])){
     }
     if(empty($data_missing)){
         
-        require_once('../mysqlConnect.php');
+        //require_once('../mysqlConnect.php');
+        include('../session.php');
         $stmt = mysqli_prepare($dbc, "DELETE FROM WorksYear WHERE title = ? AND composer = ?");
         mysqli_stmt_bind_param($stmt, 'ss', $title, $composer);
         mysqli_stmt_execute($stmt);   

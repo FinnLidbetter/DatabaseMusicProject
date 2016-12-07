@@ -54,7 +54,8 @@ if(isset($_POST['submit'])){
     if(empty($data_missing)){
 
 	
-        require_once('../mysqlConnect.php');
+        //require_once('../mysqlConnect.php');
+        include('../session.php');
 
 		$stmt = mysqli_prepare($dbc, "UPDATE WorksYear SET title = ?, composer = ?, year = ? WHERE title = ? AND composer = ?");
 		mysqli_stmt_bind_param($stmt, 'sssss', $newTitle, $newComposer, $newYear, $curTitle, $curComposer);     	

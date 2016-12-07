@@ -39,7 +39,8 @@ if(isset($_POST['submit'])){
     }
     if(empty($data_missing)){
         
-        require_once('../mysqlConnect.php');
+        //require_once('../mysqlConnect.php');
+        include('../session.php');
         $stmt = mysqli_prepare($dbc, "UPDATE Ensembles SET name = ?, date = ? WHERE name = ? AND date = ?");
         mysqli_stmt_bind_param($stmt, 'ssss', $newName, $newDate, $curName, $curDate);
         
