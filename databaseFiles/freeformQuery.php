@@ -29,29 +29,32 @@
 
     // If the query executed properly proceed
     if($response){
+      
+      echo 'Query executed successfully';
+      if (strcasecmp(substr($query,0,6),'SELECT')==0) {
 
-      $fields = mysqli_fetch_fields($response);
-      $table_heading = '<table align="left" cellspacing="5" cellpadding="8"><tr>';
-      foreach ($fields as $value) {
-        $table_heading = $table_heading . '<td align="left"><b>' . $value->name . '</b></td>';
-      }
-      $table_heading = $table_heading . '</tr>';
-
-      echo $table_heading;
-
-      // mysqli_fetch_array will return a row of data from the query
-      // until no further data is available
-      while($row = mysqli_fetch_assoc($response)){
-        $row_contents = '<tr>';
-        foreach ($row as $entry) {
-          $row_contents = $row_contents . '<td align="left">' . $entry . '</td>';
+        $fields = mysqli_fetch_fields($response);
+        $table_heading = '<table align="left" cellspacing="5" cellpadding="8"><tr>';
+        foreach ($fields as $value) {
+          $table_heading = $table_heading . '<td align="left"><b>' . $value->name . '</b></td>';
         }
-        $row_contents = $row_contents . '</tr>';
-        echo $row_contents;
+        $table_heading = $table_heading . '</tr>';
+
+        echo $table_heading;
+
+        // mysqli_fetch_array will return a row of data from the query
+        // until no further data is available
+        while($row = mysqli_fetch_assoc($response)){
+          $row_contents = '<tr>';
+          foreach ($row as $entry) {
+            $row_contents = $row_contents . '<td align="left">' . $entry . '</td>';
+          }
+          $row_contents = $row_contents . '</tr>';
+          echo $row_contents;
+        }
+
+        echo '</table>';
       }
-
-      echo '</table>';
-
     } else {
 
       echo "Couldn't issue database query<br />";

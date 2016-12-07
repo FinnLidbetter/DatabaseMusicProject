@@ -4,7 +4,7 @@
 
 <?php
 
-require_once('../mysqlConnect.php');
+require_once('../config.php');
 
 $query = "SELECT performanceID, personID, ensembleID, worksTitle, worksComposer, instrumentName, institutionName, institutionCountry, instructorID FROM KeyTable";
 

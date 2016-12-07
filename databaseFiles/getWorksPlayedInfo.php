@@ -4,7 +4,7 @@
 
 <?php
   // Get a connection for the database
-  require_once('../mysqlConnect.php');
+  require_once('../config.php');
 
   // Create a query for the database
   $query = "SELECT worksTitle, worksComposer, name, ensembleName, concertDate FROM WorksPlayed";

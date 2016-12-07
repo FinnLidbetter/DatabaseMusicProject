@@ -5,7 +5,7 @@
 <?php
   // Get a connection for the database
   //require_once('../mysqlConnect.php');
-  include('../session.php');
+  include('../config.php');
 
 
   // Create a query for the database

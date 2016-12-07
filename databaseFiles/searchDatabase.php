@@ -28,7 +28,7 @@
     $fromString = 'FROM ';
     $whereString = 'WHERE ';
     if ($tableName == 'Persons') {
-      $fromString .= 'Persons INNER JOIN KeyTable ON Persons.id=KeyTable.personID';
+      $fromString .= 'Persons LEFT JOIN KeyTable ON Persons.id=KeyTable.personID';
       $whereString .= 'TRUE';
       if ($whereStart) {
         $whereString .= ' AND MTAEndDate>=\''.$startDate.'\'';
@@ -46,7 +46,7 @@
         $whereString .= ' AND concertDate<=\''.$endDate.'\'';
       }
     } else if ($tableName == 'Performances') {
-      $fromString .= 'Performances INNER JOIN KeyTable ON Performances.id=KeyTable.performanceID';
+      $fromString .= 'Performances LEFT JOIN KeyTable ON Performances.id=KeyTable.performanceID';
       $whereString .= '1=1';
       if ($whereStart) {
         $whereString .= ' AND concertDate>=\''.$startDate.'\'';
@@ -55,7 +55,7 @@
         $whereString .= ' AND concertDate<=\''.$endDate.'\'';
       }
     } else if ($tableName == 'Ensembles') {
-      $fromString .= 'Ensembles INNER JOIN KeyTable ON Ensembles.id=KeyTable.ensembleID';
+      $fromString .= 'Ensembles LEFT JOIN KeyTable ON Ensembles.id=KeyTable.ensembleID';
       $whereString .= '1=1';
       if ($whereStart) {
         $whereString .= ' AND date>=\''.$startDate.'\'';
@@ -64,10 +64,10 @@
         $whereString .= ' AND date<=\''.$endDate.'\'';
       }
     } else if ($tableName == 'Institutions') {
-      $fromString .= 'Institutions INNER JOIN KeyTable ON (Institutions.name=KeyTable.institutionName AND Institutions.country=KeyTable.institutionCountry)';
+      $fromString .= 'Institutions LEFT JOIN KeyTable ON (Institutions.name=KeyTable.institutionName AND Institutions.country=KeyTable.institutionCountry)';
       $whereString .= '1=1';
     } else if ($tableName == 'ConcertWorks') {
-      $fromString .= 'ConcertWorks INNER JOIN (WorksYear NATURAL JOIN WorksFilePath) ON (ConcertWorks.workTitle=title AND ConcertWorks.workComposer=composer)';
+      $fromString .= 'ConcertWorks LEFT JOIN (WorksYear NATURAL JOIN WorksFilePath) ON (ConcertWorks.workTitle=title AND ConcertWorks.workComposer=composer)';
       $whereString .= '1=1';
       if ($whereStart) {
         $whereString .= ' AND (concertDate>=\''.$startDate.'\'' . 'OR year>='.substr($startDate,0,4) . ')';
@@ -102,8 +102,10 @@
     
 
     // Get a connection for the database
-    require_once('../mysqlConnect.php');
-    
+    //require_once('../mysqlConnect.php');
+    require_once('../config.php');
+
+
     $queryForWhere = 'SELECT * ' . $fromString . ' ' . $whereString . ';';
     $response1 = @mysqli_query($dbc, $queryForWhere);
     if ($response1) {
